@@ -1,3 +1,5 @@
 .php_cs.cache
 logs/
 php-fpm/docs
+data/
+mysql.env
