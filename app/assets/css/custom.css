@@ -1,0 +1,72 @@
+.main {
+  padding: 1rem;
+}
+
+.main .section-new {
+  padding: 1rem;
+}
+
+.main form {
+  padding: 1rem 0rem;
+}
+
+.main>div>figure {
+  padding: 2rem;
+}
+
+.blue-color {
+  background-color: #1e2129;
+}
+
+.grey-color {
+  background-color: #f5f5f5;
+}
+
+.pick-color {
+  background-color: #cf089b;
+}
+
+#page-content-wrapper {
+  background-color: #f8f9fa;
+}
+
+#page-content-wrapper .navbar-light .navbar-toggler,
+#page-content-wrapper .navbar-light .navbar-nav .active>.nav-link {
+  color: white;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  color: white;
+}
+
+#sidebar-wrapper .list-group>a {
+  color: white;
+}
+
+#sidebar-wrapper>div:nth-child(2)>a:hover {
+  color: #003;
+}
+
+#sidebar-wrapper .list-group-item {
+  border: 1px solid #f8f9fa;
+  border-left: #003;
+  border-right: #003;
+}
+
+.responsive-img-fit {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.delete-section .importantText {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: red;
+}
+
+@media only screen and (min-width: 992px) {
+  .mobile-links {
+    display: none;
+  }
+}
