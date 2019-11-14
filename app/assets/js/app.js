@@ -6,6 +6,9 @@
  */
 
 // any CSS you require will output into a single css file (app.css in this case)
+import { TextController } from './controller/textController';
+import { HttpServiceAyax } from './service/ajaxService';
+
 require('../css/app.css');
 
 require('@fortawesome/fontawesome-free/js/all.js');
@@ -26,3 +29,11 @@ $('#menu-toggle').click(function(e) {
 // const $ = require('jquery');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+
+window.addEventListener('load', event => {
+    const pathName = window.location.pathname;
+    if (pathName === '/text/') {
+        const httpServiceAyax = new HttpServiceAyax();
+        new TextController({ httpServiceAyax });
+    }
+});
