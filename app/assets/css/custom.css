@@ -3,7 +3,7 @@
 }
 
 .main .section-new {
-  padding: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
 }
 
 .main form {
@@ -63,6 +63,56 @@
   font-weight: bold;
   text-transform: uppercase;
   color: red;
+}
+
+/* Margin */
+
+.margin-between-colmuns {
+  margin: 0rem 0.3rem;
+}
+
+/* Color */
+
+.white-color {
+  color: white;
+}
+
+/* Padding */
+
+.padding-left-one {
+  padding-left: 1rem;
+}
+
+.padding-right-one {
+  padding-right: 1rem;
+}
+
+.padding-botom-one {
+  padding-bottom: 1rem;
+}
+
+.padding-top-one {
+  padding-top: 1rem;
+}
+
+/* table */
+
+.the-table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.table thead th {
+  border-bottom: 0px solid #dee2e6;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.max-height {
+  overflow: auto;
+  max-height: 10rem;
 }
 
 @media only screen and (min-width: 992px) {
