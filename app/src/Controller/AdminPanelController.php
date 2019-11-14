@@ -6,12 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin", name="admin_panel")
+ * @Route("/admin", name="app_adminpannel")
  */
 class AdminPanelController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_panel_index", methods={"Get", "HEAD"})
+     * @Route("/", name="app_adminpanel_index", methods={"Get", "HEAD"})
      */
     public function IndexAction()
     {
