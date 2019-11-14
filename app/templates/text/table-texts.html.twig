@@ -1,0 +1,32 @@
+{% extends "components/table/table.html.twig" %}
+
+{% block thead %}
+    <tr class="blue-color white-color">
+        <th scope="col">Text</th>
+        <th scope="col"></th>
+    </tr>
+{% endblock %}
+
+{% block tbody %}
+    {% for id, text in textCollection %}
+        <tr>
+            <td>
+                <div class="max-height">{{ text.text }}</div>
+            </td>
+            <td>
+                <div>
+                    <div class="row justify-content-end full-width">
+                        <button class="btn btn-secondary margin-between-colmuns" data-toggle="modal" data-target="#{{ 'editModal' ~ text.id }}">
+                            <i class="fa fa-edit"></i>
+                            Edit</button>
+                        {{ include('/text/modal-text.html.twig', {'id': 'editModal' ~ text.id, 'pathToController': 'App\\Controller\\TextController::editAction', 'title': 'Editar'}) }}
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#{{ 'removeModal' ~ text.id }}">
+                            <i class="fa fa-trash"></i>
+                            Delete</button>
+                        {{ include('/text/modal-text-delete.html.twig', {'id': 'removeModal' ~ text.id}) }}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,4 @@
+{{ form_start(form, {'attr': {'id': 'addTextForm', 'data-url': path('app_text_add')}}) }}
+{{ form_widget(form) }}
+<button class="btn btn-primary">{{ button_label|default(buttonText) }}</button>
+{{ form_end(form) }}
