@@ -1,0 +1,32 @@
+{% extends "components/table/table.html.twig" %}
+
+{% block thead %}
+	<tr class="blue-color white-color">
+		<th scope="col">Características</th>
+		<th scope="col"></th>
+		<th scope="col"></th>
+	</tr>
+{% endblock %}
+
+{% block tbody %}
+	{% for id, characteristic in my_pager.currentPageResults %}
+		<tr>
+			<td>{{ characteristic.name }}</td>
+			<td>{{ characteristic.value }}</td>
+			{# <td>{{ characteristic.products }}</td> #}
+			<td>
+				<div class="row justify-content-end full-width">
+					<a class="margin-between-colmuns" href="{{ path('app_characteristic_edit', {'id': characteristic.id}) }}">
+						<button class="btn btn-secondary">
+							<i class="fa fa-edit"></i>
+							Editar</button>
+					</a>
+					<button class="btn btn-danger" data-toggle="modal" data-target="#{{ 'removeModal' ~ characteristic.id }}">
+						<i class="fa fa-trash"></i>
+						Eliminar</button>
+					{{ include('/characteristic/modal-characteristic-delete.html.twig', {'id': 'removeModal' ~ characteristic.id}) }}
+				</div>
+			</td>
+		</tr>
+	{% endfor %}
+{% endblock %}

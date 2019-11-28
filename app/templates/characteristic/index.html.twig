@@ -1,0 +1,21 @@
+{% extends 'AdminPanel/index.html.twig' %}
+
+{% block title %}Characteristic index
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block main %}
+	<section class="section-new row justify-content-end">
+		<a href="{{ path('app_characteristic_add') }}">
+			<button class="btn btn-success">
+				<i class="fas fa-plus"></i>
+				Nuevo</button>
+		</a>
+
+	</section>
+	{{ include('/characteristic/table-characteristics.html.twig') }}
+	<div class="pagerfanta">
+		{{ pagerfanta(my_pager, 'twitter_bootstrap4') }}
+	</div>
+{% endblock %}
