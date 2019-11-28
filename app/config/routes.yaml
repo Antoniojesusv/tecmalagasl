@@ -5,3 +5,7 @@
 controllers:
   resource: "../src/Controller/"
   type: annotation
+
+security:
+  resource: "../src/Security/"
+  type: annotation
