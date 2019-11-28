@@ -1,0 +1,36 @@
+{% extends "components/table/table.html.twig" %}
+
+{% block thead %}
+	<tr class="blue-color white-color">
+		<th scope="col">Imagenes de fondo</th>
+		<th scope="col"></th>
+		<th scope="col"></th>
+	</tr>
+{% endblock %}
+
+{% block tbody %}
+{% for id, backgroundImage in backgroundImageCollection %}
+	<tr>
+		<td class="slider-column">
+			<div>
+				{% if backgroundImage.image is empty %}
+					<img src="{{ asset('images/' ~ "no_image.jpg") }}" alt="Sheep">
+				{% else %}
+					<img class="d-block w-100" src="{{ asset('images/' ~ backgroundImage.image.fileName) }}" alt="">
+				{% endif %}
+			</div>
+		</td>
+		<td>
+			{{ backgroundImage.title }}
+		</td>
+		<td>
+			<div class="row justify-content-end full-width">
+				<a class="margin-between-colmuns" href="{{ path('app_backgroundimage_edit', {'id': backgroundImage.id}) }}">
+					<button class="btn btn-secondary">
+						<i class="fa fa-edit"></i>
+						Editar</button>
+				</a>
+			</div>
+		</td>
+	</tr>
+</td></tr>{% endfor %}{% endblock %}
