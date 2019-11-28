@@ -22,7 +22,7 @@ class TextRepository extends ServiceEntityRepository
 
     public function getAll()
     {
-        return $this->findAll();
+        return $this->createQueryBuilder('text');
     }
 
     public function findOneById($id)
@@ -37,9 +37,9 @@ class TextRepository extends ServiceEntityRepository
         $em->flush();
     }
 
-    public function update($entity)
+    public function update(): void
     {
-        $this->save($entity);
+        $this->entityManager->flush();
     }
 
     public function remove($entity)

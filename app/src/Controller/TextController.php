@@ -6,13 +6,15 @@ use App\Entity\Text;
 use APP\Exceptions\TextException;
 use App\Form\TextType;
 use App\Services\TextService;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * @Route("/text")
+ * @Route("/admin/text")
  */
 class TextController extends AbstractController
 {
@@ -24,18 +26,23 @@ class TextController extends AbstractController
     /**
      * @Route("/", name="app_text_index")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $textCollection = $this->listAction();
+        $page = $request->query->get('page', 1);
+        $textQueryBuilder = $this->listAction();
+        $adapter = new DoctrineORMAdapter($textQueryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(10);
+        $pagerfanta->setCurrentPage($page);
 
-        if (empty($textCollection)) {
+        if (empty($textQueryBuilder)) {
             return $this->render('text/index.html.twig', [
                 'textCollection' => []
             ]);
         }
 
         return $this->render('text/index.html.twig', [
-            'textCollection' => $textCollection
+            'my_pager' => $pagerfanta
         ]);
     }
 
@@ -44,7 +51,7 @@ class TextController extends AbstractController
      */
     public function addAction(Request $request)
     {
-        $form = $this->createForm(TextType::class);
+        $form = $this->createForm(TextType::class, null);
 
         if ($request->isMethod('POST')) {
             $textData = $request->request->all();

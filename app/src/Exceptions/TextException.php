@@ -1,6 +1,6 @@
 <?php
 
-namespace APP\Exceptions;
+namespace App\Exceptions;
 
 class TextException extends Exception
 {

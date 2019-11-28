@@ -49,7 +49,7 @@ class TextService
         $text = $textData['text[text]'];
         $textEntity->setText($text);
 
-        $this->textRepository->update($textEntity);
+        $this->textRepository->update();
     }
 
     public function remove($id)

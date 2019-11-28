@@ -14,7 +14,10 @@ class TextType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', TextareaType::class);
+            ->add('text', TextareaType::class, [
+                'label' => 'Texto',
+                'required' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -21,6 +21,11 @@ class Text
      */
     private $text;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Section;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +39,18 @@ class Text
     public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getSection(): ?string
+    {
+        return $this->Section;
+    }
+
+    public function setSection(string $Section): self
+    {
+        $this->Section = $Section;
 
         return $this;
     }

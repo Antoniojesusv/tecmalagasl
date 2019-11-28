@@ -1,17 +1,20 @@
 {% extends 'AdminPanel/index.html.twig' %}
 
-{% block title %}Company index
+{% block title %}Text index
 {% endblock %}
 
 {% block body %}{% endblock %}
 
 {% block main %}
-    <section class="section-new row justify-content-end">
-        <button class="btn btn-success" data-toggle="modal" data-target="#addModal">
-            <i class="fa fa-edit"></i>
-            New</button>
+	<section class="section-new row justify-content-end">
+		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
+			<i class="fas fa-plus"></i>
+			Nuevo</button>
 
-    </section>
-    {{ include('/text/modal-text.html.twig', {'id': 'addModal', 'pathToController': 'App\\Controller\\TextController::addAction', 'title': 'Nuevo texto'}) }}
-    {{ include('/text/table-texts.html.twig') }}
+	</section>
+	{{ include('/text/modal-text.html.twig', {'id': 'addModal', 'pathToController': 'App\\Controller\\TextController::addAction', 'title': 'Nuevo texto'}) }}
+	{{ include('/text/table-texts.html.twig') }}
+	{# <div class="pagerfanta">
+			{{ pagerfanta(my_pager, 'twitter_bootstrap4') }}
+		</div> #}
 {% endblock %}
