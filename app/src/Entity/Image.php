@@ -19,21 +19,73 @@ class Image
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $uri;
+    private $fileName;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="images")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $product;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUri(): ?string
+    public function getFileName(): ?string
     {
-        return $this->uri;
+        return $this->fileName;
     }
 
-    public function setUri(string $uri): self
+    public function setFileName(string $fileName): self
     {
-        $this->uri = $uri;
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

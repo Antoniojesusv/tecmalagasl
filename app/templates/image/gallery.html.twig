@@ -1,0 +1,43 @@
+<section class="wrapper">
+	<div class="container-fostrap">
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					{% for id, image in my_pager.currentPageResults %}
+						<div class="col-xs-12 col-sm-4 margin-bottom-one">
+							<div class="card container-fluid">
+								<a class="img-card margin-top-one-rem" href="#">
+									<img class="card-img-top" src="{{ asset('images/' ~ image.fileName) }}"/>
+								</a>
+								<div class="card-body">
+									<h4 class="card-title">
+										<a href="#">
+											{{ image.title }}
+										</a>
+									</h4>
+									<p class="card-text">
+										{{ image.description }}
+									</p>
+								</div>
+								<div class="row padding-one">
+									<button class="btn btn-danger" data-toggle="modal" data-target="#{{ 'removeModal' ~ image.id }}">
+										<i class="fa fa-trash"></i>
+										Eliminar</button>
+									<a href="{{ path('app_image_edit', {id: image.id}) }}">
+										<button class="btn btn-detail margin-between-colmuns">
+											<i class="fa fa-edit"></i>
+											Editar</button>
+									</a>
+									{{ include('/image/modal-image-delete.html.twig', {'id': 'removeModal' ~ image.id}) }}
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="pagerfanta">
+					{{ pagerfanta(my_pager, 'twitter_bootstrap4') }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

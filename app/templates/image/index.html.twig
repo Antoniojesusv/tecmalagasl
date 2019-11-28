@@ -1,0 +1,18 @@
+{% extends 'AdminPanel/index.html.twig' %}
+
+{% block title %}Image index
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block main %}
+	<section class="section-new row justify-content-end">
+		<a href="{{ path('app_image_add') }}">
+			<button class="btn btn-success">
+				<i class="fas fa-plus"></i>
+				Nuevo</button>
+		</a>
+
+	</section>
+	{{ include('/image/gallery.html.twig') }}
+{% endblock %}
