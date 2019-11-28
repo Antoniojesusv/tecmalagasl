@@ -1,0 +1,15 @@
+{% extends "components/modal/modal.html.twig" %}
+
+{% set modalId = id %}
+
+{% block modalHeader %}
+	<h5 class="modal-title" id="addModalLabel">Eliminar</h5>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+{% endblock %}
+
+{% block modalBody %}
+	¿Quieres eliminar esta imagen?
+	{{ include('/slider/delete-form.html.twig') }}
+{% endblock %}
