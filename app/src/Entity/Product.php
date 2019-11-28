@@ -29,7 +29,7 @@ class Product
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $description;
 
@@ -38,9 +38,15 @@ class Product
      */
     private $characteristic;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="product")
+     */
+    private $images;
+
     public function __construct()
     {
         $this->characteristic = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -105,6 +111,37 @@ class Product
     {
         if ($this->characteristic->contains($characteristic)) {
             $this->characteristic->removeElement($characteristic);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getProduct() === $this) {
+                $image->setProduct(null);
+            }
         }
 
         return $this;
