@@ -3,6 +3,7 @@ export const TextController = function(dependencies = {}) {
     this.httpServiceAyax = httpServiceAyax;
     this.onInit();
     this.loadAddEvenListener();
+    console.log('Controlador del texto');
 };
 
 TextController.prototype = Object.create(
@@ -18,7 +19,7 @@ TextController.prototype = Object.create(
             value: () => ({
                 addTextForm: window.document.getElementById('addTextForm'),
                 editTextForm: window.document.querySelectorAll('.editTextForm'),
-                deleteTextForm: window.document.querySelectorAll('.deleteTextForm'),
+                deleteTextForm: window.document.querySelectorAll('.deleteForm'),
             }),
         },
 
