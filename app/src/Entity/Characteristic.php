@@ -38,6 +38,11 @@ class Characteristic
         $this->products = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getName() . ': ' . $this->getValue();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
