@@ -5,6 +5,8 @@
 
 {% block body %}{% endblock %}
 
+{% set path = "{{ path('initial') }}" %}
+
 {% block main %}
 	<section class="col-10 row show-section">
 		<div class="col-12 col-sm-5 margin-bottom-one">
@@ -62,7 +64,7 @@
 				</tbody>
 			</tbody>
 		</table>
-		<a href="{{ path('initial') }}">
+		<a href="{{ path('initial') ~ "#productos" }}">
 			<button type="button" class="btn btn-success">
 				Volver atras</button>
 		</a>
