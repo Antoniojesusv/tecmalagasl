@@ -1,8 +1,10 @@
-@import "~bootstrap/dist/css/bootstrap-grid.min";
-@import "~bootstrap/dist/css/bootstrap.min";
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+@import "./tecmalaga.css";
 @import "./simple-sidebar.css";
 @import "./custom.css";
+@import "./login";
 
 body {
     background-color: lightgray;
