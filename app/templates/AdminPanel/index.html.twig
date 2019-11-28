@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            {% block title %}Welcome!
-            {% endblock %}
-        </title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
 
-        <div
-            class="d-flex" id="wrapper">
+		<div
+			class="d-flex" id="wrapper">
 
-            <!-- Sidebar -->
-            <div class="border-right blue-color" id="sidebar-wrapper">
-                <div class="sidebar-heading">Tecmalaga SL
-                </div>
-                <div class="list-group list-group-flush">
-                    <a href="/" class="list-group-item list-group-item-action blue-color">Imagenes</a>
-                    <a href="{{ path('app_text_index') }}" class="list-group-item list-group-item-action blue-color">Textos</a>
-                    <a href="/company" class="list-group-item list-group-item-action blue-color">Productos</a>
-                    <a href="/company" class="list-group-item list-group-item-action blue-color">Caracteristicas</a>
-                </div>
-            </div>
-            <!-- /#sidebar-wrapper -->
+			<!-- Sidebar -->
+			<div class="border-right blue-color" id="sidebar-wrapper">
+				<div class="sidebar-heading">Tecmalaga SL
+				</div>
+				<div class="list-group list-group-flush">
+					<a href="{{ path('app_image_index') }}" class="list-group-item list-group-item-action blue-color">Imagenes</a>
+					<a href="{{ path('app_text_index') }}" class="list-group-item list-group-item-action blue-color">Textos</a>
+					<a href="{{ path('app_product_index') }}" class="list-group-item list-group-item-action blue-color">Productos</a>
+					<a href="{{ path('app_characteristic_index') }}" class="list-group-item list-group-item-action blue-color">Caracteristicas</a>
+					<a href="{{ path('app_backgroundimage_index') }}" class="list-group-item list-group-item-action blue-color">Imagenes de fondo</a>
+					<a href="{{ path('app_footer_index') }}" class="list-group-item list-group-item-action blue-color">Elementos pide de página</a>
+					<a href="{{ path('app_slider_index') }}" class="list-group-item list-group-item-action blue-color">Slider de imágenes</a>
+				</div>
+			</div>
+			<!-- /#sidebar-wrapper -->
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
 
-                <nav class="navbar grey-color navbar-expand-lg navbar-light border-bottom">
-                    <button class="btn btn-light" id="menu-toggle">Menu</button>
+				<nav class="navbar grey-color navbar-expand-lg navbar-light border-bottom">
+					<button class="btn btn-light" id="menu-toggle">Menu</button>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/">Home
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                                <a class="nav-link mobile-links" href="/sector">Sectors</a>
-                                <a class="nav-link mobile-links" href="/company">Companies</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+					<div>
+						<a class="nav-link" href="{{ path('app_logout') }}">
+							<button class="btn btn-light" id="menu-toggle">Logout</button>
+						</a>
+					</div>
 
-                <main class="main container-fluid"> {% block main %}{% endblock %}
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+							<li class="nav-item active">
+								<a class="nav-link" href="/">Home
+									<span class="sr-only">(current)</span>
+								</a>
+								<a class="nav-link mobile-links" href="{{ path('app_image_index') }}">Imagenes</a>
+								<a class="nav-link mobile-links" href="{{ path('app_text_index') }}">Textos</a>
+								<a class="nav-link mobile-links" href="{{ path('app_product_index') }}">Productos</a>
+								<a class="nav-link mobile-links" href="{{ path('app_characteristic_index') }}">Caracteristicas</a>
+								<a class="nav-link mobile-links" href="{{ path('app_backgroundimage_index') }}">Imagenes de fondo</a>
+								<a class="nav-link mobile-links" href="{{ path('app_footer_index') }}">Elementos pide de página</a>
+								<a class="nav-link mobile-links" href="{{ path('app_slider_index') }}">Slider de imágenes</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
 
-                    </main>
-                </div>
-                <!-- /#page-content-wrapper -->
+				<main class="main container-fluid"> {% block main %}{% endblock %}
+					</main>
+				</div>
+				<!-- /#page-content-wrapper -->
 
-            </div>
-            {% block body %}{% endblock %}
-            {% block javascripts %}
-                {{ encore_entry_script_tags('app') }}
-            {% endblock %}
-        </body>
-    </html>
+			</div>
+			{% block body %}{% endblock %}
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</body>
+	</html>
