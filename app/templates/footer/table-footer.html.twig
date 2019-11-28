@@ -1,0 +1,32 @@
+{% extends "components/table/table.html.twig" %}
+
+{% block thead %}
+	<tr class="blue-color white-color">
+		<th scope="col">Valor</th>
+		<th scope="col">Visibilidad</th>
+		<th scope="col">Posición</th>
+		<th scope="col"></th>
+	</tr>
+{% endblock %}
+
+{% block tbody %}
+{% for id, element in my_pager.currentPageResults %}
+	<tr>
+		<td>{{ element.value }}</td>
+		{% if element.visibility == true %}
+			<td>Si</td>
+		{% else %}
+			<td>No</td>
+		{% endif %}
+		<td>{{ element.position }}</td>
+		<td>
+			<div class="row justify-content-end full-width">
+				<a class="margin-between-colmuns" href="{{ path('app_footer_edit', {'id': element.id}) }}">
+					<button class="btn btn-secondary">
+						<i class="fa fa-edit"></i>
+						Editar</button>
+				</a>
+			</div>
+		</td>
+	</tr>
+</td></tr>{% endfor %}{% endblock %}

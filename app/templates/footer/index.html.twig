@@ -1,0 +1,14 @@
+{% extends 'AdminPanel/index.html.twig' %}
+
+{% block title %}Footer elements index
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block main %}
+	<section class="section-new row justify-content-end"></section>
+	{{ include('/footer/table-footer.html.twig') }}
+	<div class="pagerfanta">
+		{{ pagerfanta(my_pager, 'twitter_bootstrap4') }}
+	</div>
+{% endblock %}
