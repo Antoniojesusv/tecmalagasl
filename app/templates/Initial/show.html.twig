@@ -9,7 +9,7 @@
 
 {% block main %}
 	<section class="col-10 row show-section">
-		<div class="col-12 col-sm-5 margin-bottom-one">
+		<div class="col-12 col-lg-5 margin-bottom-three">
 			<div>
 				{% if product.images is empty %}
 					<img src="{{ asset('images/' ~ "no_image.jpg") }}" alt="Sheep">
@@ -40,7 +40,7 @@
 				{% endif %}
 			</div>
 		</div>
-		<div class="col-12 col-sm-5">
+		<div class="col-12 col-lg-5">
 			<h2>{{ product.name }}</h2>
 			<p class="price">{{ product.price }}
 				€</p>

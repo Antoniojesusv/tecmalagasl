@@ -15,8 +15,8 @@
 			<span>TECMALAGA</span>
 		</article>
 	</section>
-	<section id="acercade" class="section-2 grid-block grid-gap font-resize">
-		<article class="article-1">
+	<section id="acercade" class="section-2 row font-resize">
+		<article class="article-1 col-12">
 			<div>
 				{% for text in textCollection %}
 					{% if text.section == "Section-2-title" %}
@@ -32,7 +32,7 @@
 				{% endfor %}
 			</div>
 		</article>
-		<article class="article-2">
+		<article class="article-2 col-12">
 			<div class="slider-column">
 				<div>
 					{% if sliderCollection is empty %}
@@ -65,7 +65,7 @@
 				</div>
 			</div>
 		</article>
-		<article class="article-3">
+		<article class="article-3 col-12">
 			<div>
 				{% for text in textCollection %}
 					{% if text.section == "Section-2-column-2" %}

@@ -86,6 +86,10 @@ body {
     margin-bottom: 1rem;
 }
 
+.margin-bottom-three {
+    margin-bottom: 3rem;
+}
+
 .margin-top-one-rem {
     margin-top: 1rem;
 }
@@ -248,6 +252,15 @@ footer.footer .article-1 div a p {
 }
 
 /* Sections */
+
+.section-2 .article-3,
+.section-2 .article-1 {
+    padding: 0rem 4rem;
+}
+
+.section-2 .article-2 {
+    margin: 2rem;
+}
 
 .section-2,
 .section-3 .article-1 p {
