@@ -1,6 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tecmalaga SL
+{% block title %}
+	{% for text in textCollection %}
+		{% if text.section == "Main-title" %}
+			{{ text.text }}
+		{% endif %}
+	{% endfor %}
 {% endblock %}
 
 {% block body %}{% endblock %}
@@ -12,7 +17,11 @@
 			{% endif %}
 		{% endfor %}
 		<article class="article-1">
-			<span>TECMALAGA</span>
+			{% for text in textCollection %}
+				{% if text.section == "Main-title" %}
+					<span>{{ text.text }}</span>
+				{% endif %}
+			{% endfor %}
 		</article>
 	</section>
 	<section id="acercade" class="section-2 row font-resize">
